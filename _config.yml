@@ -1,0 +1,13 @@
+title: "Renato Costa"
+tagline: "Perito Contábil Judicial e Extrajudicial"
+description: "Renato Costa, Perito Contábil Judicial e Extrajudicial. Autoridade em finanças e clareza técnica em laudos."
+url: "https://www.peritorenatocosta.com.br"
+baseurl: ""
+
+timezone: "America/Sao_Paulo"
+lang: "pt-BR"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
