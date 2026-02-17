@@ -33,7 +33,7 @@ a{color:inherit}
 .main{
   max-width:var(--container);
   margin:0 auto;
-  padding:calc(32px + var(--space-lg)) var(--space) 56px;
+  padding:calc(18px + var(--space-lg)) var(--space) 56px;
 }
 
 .header{
