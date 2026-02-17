@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    {% include header.html %}
+    {% include menu-overlay.html %}
+
+    <main class="main" id="conteudo">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+  </body>
+</html>
