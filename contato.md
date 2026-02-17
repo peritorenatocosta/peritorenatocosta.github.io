@@ -21,4 +21,3 @@ permalink: /contato/
     </div>
   </div>
 </section>
-<img width="402" height="740" alt="image" src="https://github.com/user-attachments/assets/56298980-5814-4d40-8927-db1e54578fbe" />
