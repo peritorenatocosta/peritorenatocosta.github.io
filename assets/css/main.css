@@ -33,7 +33,7 @@ a{color:inherit}
 .main{
   max-width:var(--container);
   margin:0 auto;
-  padding:calc(72px + var(--space-lg)) var(--space) 56px;
+  padding:calc(32px + var(--space-lg)) var(--space) 56px;
 }
 
 .header{
@@ -174,7 +174,7 @@ a{color:inherit}
 }
 
 .section{
-  margin-top:34px;
+  margin-top:16px;
 }
 .section h2{
   margin:0 0 10px 0;
