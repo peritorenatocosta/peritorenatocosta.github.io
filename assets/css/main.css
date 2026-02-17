@@ -99,7 +99,7 @@ a{color:inherit}
   gap:18px;
 }
 .photo{
-  width:600px;
+  width:300px;
   max-width:100%;
   border-radius:var(--radius);
   overflow:hidden;
