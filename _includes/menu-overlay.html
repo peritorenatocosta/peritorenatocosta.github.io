@@ -1,0 +1,22 @@
+<div class="overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="overlay__backdrop" data-close="true"></div>
+
+  <div class="overlay__panel" role="document">
+    <div class="overlay__header">
+      <div class="overlay__title">Menu</div>
+      <button class="overlay__close" id="menuCloseBtn" type="button" aria-label="Fechar menu">Fechar</button>
+    </div>
+
+    <nav class="overlay__nav" aria-label="Navegação principal">
+      <a class="overlay__link" href="{{ '/' | relative_url }}">Home</a>
+      <a class="overlay__link" href="{{ '/curriculo/' | relative_url }}">Currículo</a>
+      <a class="overlay__link" href="{{ '/contato/' | relative_url }}">Contato</a>
+    </nav>
+
+    <div class="overlay__contacts">
+      <div class="overlay__contactsTitle">Contato</div>
+      <a class="overlay__link" href="mailto:renatocosta.perito@outlook.com">renatocosta.perito@outlook.com</a>
+      <a class="overlay__link" href="https://wa.me/5521966903353" target="_blank" rel="noopener">WhatsApp (21) 96690-3353</a>
+    </div>
+  </div>
+</div>
