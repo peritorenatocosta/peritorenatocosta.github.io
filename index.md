@@ -7,7 +7,7 @@ description: "Renato Costa, Perito Contábil Judicial e Extrajudicial. Autoridad
 
 <section class="hero">
   <div class="photo" aria-label="Foto profissional">
-    <div class="photo__placeholder">
+     <img class="photo__img" src="{{ '/assets/img/profile/perfil.jpg' | relative_url }}" alt="Renato Costa">
       Insira aqui sua foto (arquivo em assets/img/profile/).
     </div>
   </div>
