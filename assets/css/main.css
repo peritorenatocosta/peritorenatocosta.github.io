@@ -107,8 +107,9 @@ a{color:inherit}
   box-shadow:var(--shadow);
 }
 .photo__img{
-  width:100%;
+  width:600px;
   height:auto;
+  max-width:100%;
   display:block;
 }
 .photo__placeholder{
