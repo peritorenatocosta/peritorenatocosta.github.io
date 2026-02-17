@@ -22,4 +22,3 @@ nav_title: "Currículo"
     </ul>
   </div>
 </section>
-<img width="414" height="941" alt="image" src="https://github.com/user-attachments/assets/badbacbd-f415-45d8-a333-7abbf4800906" />
