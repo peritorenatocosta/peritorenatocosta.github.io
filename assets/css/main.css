@@ -99,7 +99,8 @@ a{color:inherit}
   gap:18px;
 }
 .photo{
-  width:100%;
+  width:600px;
+  max-width:100%;
   border-radius:var(--radius);
   overflow:hidden;
   background:linear-gradient(135deg, rgba(11,42,74,.18), rgba(31,41,55,.14));
@@ -107,9 +108,8 @@ a{color:inherit}
   box-shadow:var(--shadow);
 }
 .photo__img{
-  width:300px;
+  width:100%;
   height:auto;
-  max-width:100%;
   display:block;
 }
 .photo__placeholder{
