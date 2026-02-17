@@ -107,7 +107,7 @@ a{color:inherit}
   box-shadow:var(--shadow);
 }
 .photo__img{
-  width:600px;
+  width:300px;
   height:auto;
   max-width:100%;
   display:block;
