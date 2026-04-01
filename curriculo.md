@@ -8,7 +8,7 @@ nav_title: "Currículo"
 ---
 
 <section class="section">
-  <h2>Perfil profissional e qualificações</h2>
+  <h2>Formação e qualificações</h2>
   <div class="card">
     <ul class="list">
       <li><strong>Atuação</strong>: Perícia judicial e assistência técnica em contratos bancários (CDC, SFH, cartão de crédito, cheque especial, expurgos inflacionários) e em liquidação de sentença.</li>
