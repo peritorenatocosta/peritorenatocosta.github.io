@@ -12,8 +12,7 @@ nav_title: "Currículo"
   <div class="card">
     <ul class="list">
       <li><strong>Resumo profissional</strong>: 12 anos de experiência em Planejamento Financeiro, com atuação em orçamento empresarial, análise de demonstrações contábeis e apuração de indicadores financeiros, em empresas multinacionais e de grande porte dos setores de varejo, seguros, óleo e gás e editorial.</li>
-      <li><strong>Formação</strong>: Administração (Finanças e Controle) — UFRJ; Ciências Contábeis — Estácio</li>
-      <li><strong>Registro</strong>: CRC RJ-133650/O-4</li>
+      <li><strong>Graduações</strong>: Administração (Finanças e Controle) — UFRJ; Ciências Contábeis — Estácio</li>
       <li><strong>MBAs</strong>: MBA em Finanças — UFF (Latec); MBA em Perícia Judicial e Extrajudicial — Faculdade de São Marcos</li>
       <li><strong>Certificações e cursos</strong>: Perícia Judicial Financeira — Perito 5K; Perícia Judicial Contábil — Perito 5K; Controladoria — FGV; Produtividade e Gestão do Tempo — Escola Conquer</li>
       <li><strong>Atuação</strong>: perícia judicial e extrajudicial; revisões de contratos bancários (CDC, SFH, cartão, cheque especial, expurgos); liquidação de sentença (cível, família, previdenciária)</li>
