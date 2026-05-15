@@ -1,443 +1,235 @@
-/* ============================================================
-   Renato Costa | Perito Contábil — main.css
-   Mobile-first · Redesign com melhorias para desktop
-   ============================================================ */
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Renato Costa | Perito Contábil — Preview</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap');
+    :root {
+      --bg: #fafaf8; --bg-alt: #f4f3ef;
+      --text: #16180f; --muted: #6b6f64; --subtle: #9a9e93;
+      --azul: #0c2d52; --azul-light: #1a4a7a; --azul-pale: #e8eef5;
+      --gold: #b8923a; --gold-light: #f5ecd7;
+      --card: #ffffff;
+      --border: rgba(22,24,15,.10); --border-strong: rgba(22,24,15,.18);
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(12,45,82,.09);
+      --shadow-md: 0 8px 40px rgba(12,45,82,.14);
+      --container: 1080px; --space: 20px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box }
+    html, body { height: 100% }
+    body { margin:0; font-family:var(--font); color:var(--text); background:var(--bg); line-height:1.65; -webkit-font-smoothing:antialiased }
+    a { color:inherit; text-decoration:none }
+    img { display:block; max-width:100% }
 
-:root {
-  --bg: #fafaf8;
-  --bg-alt: #f4f3ef;
-  --text: #16180f;
-  --muted: #6b6f64;
-  --subtle: #9a9e93;
+    .header { position:sticky; top:0; z-index:50; background:rgba(250,250,248,.92); border-bottom:1px solid var(--border); backdrop-filter:saturate(160%) blur(12px) }
+    .header__inner { max-width:var(--container); margin:0 auto; padding:14px var(--space); display:flex; align-items:center; justify-content:space-between; gap:12px }
+    .brand { display:block; min-width:180px }
+    .brand__name { font-weight:600; font-size:1rem }
+    .brand__meta { font-size:.82rem; color:var(--muted) }
+    .header__actions { display:flex; align-items:center; gap:10px }
+    .header__nav { display:none; align-items:center; gap:4px }
+    .header__nav-link { font-size:.9rem; font-weight:500; color:var(--muted); padding:7px 13px; border-radius:999px; transition:color .15s,background .15s }
+    .header__nav-link:hover { color:var(--text); background:var(--bg-alt) }
+    .header__nav-link--active { color:var(--azul); font-weight:600 }
+    .header__contact { display:none; font-size:.88rem; color:var(--muted); border:1px solid var(--border); background:var(--card); padding:8px 14px; border-radius:999px; white-space:nowrap }
+    .menu-btn { border:1px solid var(--border); background:var(--card); border-radius:12px; width:44px; height:44px; display:grid; place-content:center; gap:4px; cursor:pointer; flex-shrink:0 }
+    .menu-btn__bar { display:block; width:18px; height:2px; background:var(--azul); border-radius:2px }
 
-  --azul: #0c2d52;
-  --azul-light: #1a4a7a;
-  --azul-pale: #e8eef5;
-  --gold: #b8923a;
-  --gold-light: #f5ecd7;
+    .main { max-width:var(--container); margin:0 auto; padding:32px var(--space) 64px }
 
-  --card: #ffffff;
-  --border: rgba(22, 24, 15, .10);
-  --border-strong: rgba(22, 24, 15, .18);
+    .hero { display:flex; flex-direction:column; gap:24px }
+    .hero__media { order:0 }
+    .hero__body  { order:1 }
 
-  --radius: 16px;
-  --radius-sm: 10px;
-  --shadow: 0 4px 24px rgba(12, 45, 82, .09);
-  --shadow-md: 0 8px 40px rgba(12, 45, 82, .14);
+    .photo { width:100%; max-width:420px; border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow); background:linear-gradient(135deg,var(--azul-pale),var(--bg-alt)) }
+    .photo__img { width:100%; height:auto; display:block }
 
-  --container: 1080px;
-  --space: 20px;
-  --space-lg: 32px;
+    .hero__label { display:inline-block; font-size:.78rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); background:var(--gold-light); border:1px solid rgba(184,146,58,.2); border-radius:999px; padding:4px 12px; margin-bottom:10px }
+    .h1 { font-family:var(--font-display); font-size:2.1rem; line-height:1.15; margin:0 0 8px; letter-spacing:-.3px; color:var(--azul) }
+    .lead { margin:0; color:var(--muted); font-size:1rem; line-height:1.6 }
+    .hero__divider { width:40px; height:3px; background:linear-gradient(90deg,var(--gold),transparent); border-radius:2px; margin:18px 0 }
 
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
-}
+    .pillars { display:grid; grid-template-columns:1fr; gap:12px; margin-top:4px }
+    .pillar { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:16px 18px; position:relative; overflow:hidden; transition:box-shadow .2s,border-color .2s }
+    .pillar::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:linear-gradient(180deg,var(--gold),var(--azul)); opacity:0; transition:opacity .2s }
+    .pillar:hover { box-shadow:var(--shadow); border-color:var(--border-strong) }
+    .pillar:hover::before { opacity:1 }
+    .pillar__title { margin:0 0 5px; font-weight:600; font-size:.95rem }
+    .pillar__text  { margin:0; color:var(--muted); font-size:.9rem; line-height:1.55 }
 
-/* ── Reset ───────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box }
-html, body { height: 100% }
-body {
-  margin: 0;
-  font-family: var(--font);
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-}
-a { color: inherit }
-img { display: block; max-width: 100% }
+    .ctaRow { display:flex; flex-direction:column; gap:10px; margin-top:20px }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:7px; padding:13px 18px; border-radius:12px; border:1px solid var(--border); background:var(--card); font-family:var(--font); font-weight:600; font-size:.95rem; cursor:pointer; transition:background .15s,border-color .15s,transform .1s,box-shadow .15s }
+    .btn:hover { transform:translateY(-1px); box-shadow:var(--shadow) }
+    .btn--primary { background:var(--azul); color:#fff; border-color:transparent }
+    .btn--primary:hover { background:var(--azul-light) }
 
-/* ── Header ─────────────────────────────────────────────── */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(250, 250, 248, .92);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: saturate(160%) blur(12px);
-  -webkit-backdrop-filter: saturate(160%) blur(12px);
-}
-.header__inner {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 14px var(--space);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-.brand { display: block; text-decoration: none; min-width: 180px }
-.brand__name {
-  font-weight: 600;
-  letter-spacing: .1px;
-  font-size: 1rem;
-}
-.brand__meta { font-size: .82rem; color: var(--muted) }
+    .section { margin-top:28px }
+    .section h2 { margin:0 0 12px; font-family:var(--font-display); font-size:1.35rem; letter-spacing:-.1px; color:var(--azul) }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:20px 22px }
+    .list { margin:0; padding-left:20px }
+    .list li { margin:8px 0; font-size:.95rem; line-height:1.55 }
+    .list li strong { color:var(--azul) }
 
-.header__actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+    .contactGrid { display:grid; grid-template-columns:1fr; gap:14px }
+    .contactLine { margin:0; color:var(--muted) }
+    .contactBtns { display:flex; flex-direction:column; gap:10px }
 
-/* Navegação desktop — oculta no mobile */
-.header__nav {
-  display: none;
-  align-items: center;
-  gap: 4px;
-}
-.header__nav-link {
-  text-decoration: none;
-  font-size: .9rem;
-  font-weight: 500;
-  color: var(--muted);
-  padding: 7px 13px;
-  border-radius: 999px;
-  transition: color .15s, background .15s;
-}
-.header__nav-link:hover { color: var(--text); background: var(--bg-alt) }
-.header__nav-link--active { color: var(--azul); font-weight: 600 }
+    .footer { border-top:1px solid var(--border); padding:22px var(--space); background:var(--bg-alt) }
+    .footer__inner { max-width:var(--container); margin:0 auto; color:var(--subtle); font-size:.88rem; text-align:center }
+    .footer__line { margin:4px 0 }
 
-/* Contato no header — oculto no mobile */
-.header__contact {
-  display: none;
-  font-size: .88rem;
-  color: var(--muted);
-  text-decoration: none;
-  border: 1px solid var(--border);
-  background: var(--card);
-  padding: 8px 14px;
-  border-radius: 999px;
-  white-space: nowrap;
-  transition: border-color .15s, color .15s;
-}
-.header__contact:hover { border-color: var(--border-strong); color: var(--text) }
+    .overlay { position:fixed; inset:0; z-index:80; display:grid; place-items:center; padding:18px }
+    .overlay[hidden] { display:none }
+    .overlay__backdrop { position:absolute; inset:0; background:rgba(12,45,82,.55); backdrop-filter:blur(2px) }
+    .overlay__panel { position:relative; width:min(520px,94vw); background:var(--bg); border:1px solid var(--border); border-radius:20px; box-shadow:var(--shadow-md); overflow:hidden }
+    .overlay__header { display:flex; align-items:center; justify-content:space-between; padding:16px 18px; border-bottom:1px solid var(--border) }
+    .overlay__title { font-weight:700; color:var(--azul) }
+    .overlay__close { border:1px solid var(--border); background:var(--bg-alt); padding:8px 12px; border-radius:10px; cursor:pointer }
+    .overlay__nav, .overlay__contacts { padding:10px 14px 16px }
+    .overlay__link { display:block; padding:13px 12px; border-radius:12px; font-weight:500; transition:background .12s }
+    .overlay__link:hover { background:var(--bg-alt) }
+    .overlay__contactsTitle { margin:8px 0 6px; color:var(--subtle); font-size:.85rem; text-transform:uppercase; letter-spacing:.06em }
 
-/* Botão menu hambúrguer — só mobile */
-.menu-btn {
-  border: 1px solid var(--border);
-  background: var(--card);
-  border-radius: 12px;
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-content: center;
-  gap: 4px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-.menu-btn__bar {
-  display: block;
-  width: 18px;
-  height: 2px;
-  background: var(--azul);
-  border-radius: 2px;
-}
+    /* DESKTOP */
+    @media (min-width: 860px) {
+      .header__nav     { display:flex }
+      .header__contact { display:inline-flex }
+      .menu-btn        { display:none }
+      .main { padding:48px var(--space) 80px }
+      .hero { flex-direction:row; align-items:flex-start; gap:40px }
+      .hero__media {
+        order:0; flex:0 0 42%; max-width:42%;
+        position:sticky; top:88px;
+      }
+      .hero__body { order:1; flex:1 1 0; padding-top:8px }
+      .photo { width:100%; max-width:100% }
+      .photo__img { border-radius:0 }
+      .h1 { font-size:2.2rem; white-space:nowrap }
+      .lead { font-size:1.05rem }
+      .ctaRow { flex-direction:column; gap:10px }
+      .btn { width:100%; padding:14px 18px; font-size:1rem }
+      .pillars { grid-template-columns:1fr 1fr; gap:12px }
+      .contactBtns { flex-direction:row }
+      .card { padding:24px 28px }
+    }
+    @media (min-width: 1100px) {
+      .hero__media { flex:0 0 40%; max-width:40% }
+      .h1 { font-size:2.5rem }
+    }
 
-/* ── Main wrapper ────────────────────────────────────────── */
-.main {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 32px var(--space) 64px;
-}
+    .preview-banner { background:var(--azul); color:#fff; text-align:center; padding:10px 20px; font-size:.85rem }
+    .preview-banner a { color:var(--gold-light); text-decoration:underline }
+  </style>
+</head>
+<body>
 
-/* ── Hero — mobile: coluna única ────────────────────────── */
-.hero {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.hero__media { order: 0 }
-.hero__body  { order: 1 }
+<div class="preview-banner">
+  🎨 <strong>Preview do redesign</strong> — Redimensione a janela para ver mobile vs desktop.
+  <a href="https://www.peritorenatocosta.com.br" target="_blank">Ver site atual →</a>
+</div>
 
-.photo {
-  width: 100%;
-  max-width: 420px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  background: linear-gradient(135deg, var(--azul-pale), var(--bg-alt));
-}
-.photo__img { width: 100%; height: auto; display: block }
-.photo__placeholder {
-  aspect-ratio: 4/5;
-  display: grid;
-  place-content: center;
-  color: var(--subtle);
-  font-size: .9rem;
-  padding: 24px;
-  text-align: center;
-}
+<header class="header">
+  <div class="header__inner">
+    <a class="brand" href="#">
+      <span class="brand__name">Renato Costa</span>
+      <span class="brand__meta">CRC RJ-133650/O-4</span>
+    </a>
+    <div class="header__actions">
+      <nav class="header__nav">
+        <a class="header__nav-link header__nav-link--active" href="#">Home</a>
+        <a class="header__nav-link" href="#">Currículo</a>
+        <a class="header__nav-link" href="#">Contato</a>
+      </nav>
+      <a class="header__contact" href="https://wa.me/5521966903353">📱 (21) 96690-3353</a>
+      <button class="menu-btn" onclick="document.getElementById('menu').removeAttribute('hidden')" aria-label="Abrir menu">
+        <span class="menu-btn__bar"></span>
+        <span class="menu-btn__bar"></span>
+        <span class="menu-btn__bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-/* Rótulo acima do nome */
-.hero__label {
-  display: inline-block;
-  font-size: .78rem;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--gold);
-  background: var(--gold-light);
-  border: 1px solid rgba(184,146,58,.2);
-  border-radius: 999px;
-  padding: 4px 12px;
-  margin-bottom: 10px;
-}
+<main class="main">
+  <div class="hero">
 
-.h1 {
-  font-family: var(--font-display);
-  font-size: 2.1rem;
-  line-height: 1.15;
-  margin: 0 0 8px;
-  letter-spacing: -.3px;
-  color: var(--azul);
-}
-.lead {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.6;
-}
+    <!-- COLUNA ESQUERDA: só a foto -->
+    <div class="hero__media">
+      <div class="photo">
+        <img class="photo__img" src="https://www.peritorenatocosta.com.br/assets/img/profile/perfil.jpg" alt="Renato Costa">
+      </div>
+    </div>
 
-/* Divisor sutil */
-.hero__divider {
-  width: 40px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold), transparent);
-  border-radius: 2px;
-  margin: 18px 0;
-}
+    <!-- COLUNA DIREITA: todos os outros elementos -->
+    <div class="hero__body">
+      <span class="hero__label">Perito Contábil Judicial e Extrajudicial</span>
+      <h1 class="h1">Renato Costa</h1>
+      <div class="hero__divider"></div>
+      <p class="lead">Autoridade em finanças e clareza técnica em laudos periciais. 12 anos de experiência em planejamento financeiro e perícia judicial contábil.</p>
+      <div class="ctaRow">
+        <a class="btn btn--primary" href="#">Entrar em contato</a>
+        <a class="btn" href="#">Ver perfil profissional</a>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <p class="pillar__title">Perícia Bancária</p>
+          <p class="pillar__text">CDC, SFH, cartão de crédito, cheque especial e expurgos inflacionários.</p>
+        </div>
+        <div class="pillar">
+          <p class="pillar__title">Liquidação de Sentença</p>
+          <p class="pillar__text">Esferas cível, previdenciária e de família.</p>
+        </div>
+      </div>
+    </div>
 
-/* ── Pilares de atuação ──────────────────────────────────── */
-.pillars {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-top: 4px;
-}
-.pillar {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-  position: relative;
-  overflow: hidden;
-  transition: box-shadow .2s, border-color .2s;
-}
-.pillar::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 3px; height: 100%;
-  background: linear-gradient(180deg, var(--gold), var(--azul));
-  opacity: 0;
-  transition: opacity .2s;
-}
-.pillar:hover { box-shadow: var(--shadow); border-color: var(--border-strong) }
-.pillar:hover::before { opacity: 1 }
-.pillar__title { margin: 0 0 5px; font-weight: 600; font-size: .95rem }
-.pillar__text  { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.55 }
+  </div>
 
-/* ── CTA Buttons ─────────────────────────────────────────── */
-.ctaRow {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  padding: 13px 18px;
-  border-radius: 12px;
-  text-decoration: none;
-  border: 1px solid var(--border);
-  background: var(--card);
-  font-family: var(--font);
-  font-weight: 600;
-  font-size: .95rem;
-  cursor: pointer;
-  transition: background .15s, border-color .15s, transform .1s, box-shadow .15s;
-}
-.btn:hover { transform: translateY(-1px); box-shadow: var(--shadow) }
-.btn--primary {
-  background: var(--azul);
-  color: #fff;
-  border-color: transparent;
-}
-.btn--primary:hover { background: var(--azul-light) }
+  <div class="section">
+    <h2>Formação e qualificações</h2>
+    <div class="card">
+      <ul class="list">
+        <li><strong>Graduações:</strong> Administração (Finanças e Controle) — UFRJ; Ciências Contábeis — Estácio.</li>
+        <li><strong>MBAs:</strong> Finanças — UFF (Latec); Perícia Judicial e Extrajudicial — Fac. de São Marcos.</li>
+        <li><strong>Certificações:</strong> Perícia Judicial Financeira e Contábil — Perito 5K; Controladoria — FGV.</li>
+        <li><strong>Ferramentas:</strong> Word e Excel avançados; Power BI e SQL intermediários.</li>
+        <li><strong>Idiomas:</strong> Inglês fluente; Espanhol avançado; Francês intermediário.</li>
+      </ul>
+    </div>
+  </div>
+</main>
 
-/* ── Seções internas (currículo, contato) ───────────────── */
-.section { margin-top: 28px }
-.section h2 {
-  margin: 0 0 12px;
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  letter-spacing: -.1px;
-  color: var(--azul);
-}
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px 22px;
-}
-.list { margin: 0; padding-left: 20px }
-.list li { margin: 8px 0; font-size: .95rem; line-height: 1.55 }
-.list li strong { color: var(--azul) }
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__line">Renato Costa · CRC RJ-133650/O-4</p>
+    <p class="footer__line">renatocosta.perito@outlook.com · (21) 96690-3353</p>
+  </div>
+</footer>
 
-/* ── Contato ────────────────────────────────────────────── */
-.contactGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-}
-.contactLine { margin: 0; color: var(--muted) }
-.contactBtns {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+<div class="overlay" id="menu" hidden>
+  <div class="overlay__backdrop" onclick="document.getElementById('menu').setAttribute('hidden','')"></div>
+  <div class="overlay__panel">
+    <div class="overlay__header">
+      <span class="overlay__title">Menu</span>
+      <button class="overlay__close" onclick="document.getElementById('menu').setAttribute('hidden','')">Fechar</button>
+    </div>
+    <nav class="overlay__nav">
+      <a class="overlay__link" href="#">Home</a>
+      <a class="overlay__link" href="#">Currículo</a>
+      <a class="overlay__link" href="#">Contato</a>
+    </nav>
+    <div class="overlay__contacts">
+      <p class="overlay__contactsTitle">Contato</p>
+      <a class="overlay__link" href="mailto:renatocosta.perito@outlook.com">✉ renatocosta.perito@outlook.com</a>
+      <a class="overlay__link" href="https://wa.me/5521966903353">📱 WhatsApp (21) 96690-3353</a>
+    </div>
+  </div>
+</div>
 
-/* ── Footer ─────────────────────────────────────────────── */
-.footer {
-  border-top: 1px solid var(--border);
-  padding: 22px var(--space);
-  background: var(--bg-alt);
-}
-.footer__inner {
-  max-width: var(--container);
-  margin: 0 auto;
-  color: var(--subtle);
-  font-size: .88rem;
-  text-align: center;
-}
-.footer__line { margin: 4px 0 }
-
-/* ── Overlay (menu mobile) ──────────────────────────────── */
-.overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 80;
-  display: grid;
-  place-items: center;
-  padding: 18px;
-}
-.overlay[hidden] { display: none }
-.overlay__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(12, 45, 82, .55);
-  backdrop-filter: blur(2px);
-}
-.overlay__panel {
-  position: relative;
-  width: min(520px, 94vw);
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  box-shadow: var(--shadow-md);
-  overflow: hidden;
-}
-.overlay__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 18px;
-  border-bottom: 1px solid var(--border);
-}
-.overlay__title { font-weight: 700; color: var(--azul) }
-.overlay__close {
-  border: 1px solid var(--border);
-  background: var(--bg-alt);
-  padding: 8px 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: .9rem;
-}
-.overlay__nav, .overlay__contacts { padding: 10px 14px 16px }
-.overlay__link {
-  display: block;
-  padding: 13px 12px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background .12s;
-}
-.overlay__link:hover { background: var(--bg-alt) }
-.overlay__contactsTitle {
-  margin: 8px 0 6px;
-  color: var(--subtle);
-  font-size: .85rem;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-}
-
-/* ============================================================
-   DESKTOP — a partir de 860px
-   ============================================================ */
-@media (min-width: 860px) {
-
-  /* Header: mostrar nav + contato, esconder hambúrguer */
-  .header__nav     { display: flex }
-  .header__contact { display: inline-flex }
-  .menu-btn        { display: none }
-
-  /* Main com mais respiro */
-  .main { padding: 48px var(--space) 80px }
-
-  /* Hero: duas colunas */
-  .hero {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 52px;
-  }
-  .hero__media {
-    order: 0;
-    flex: 0 0 340px;
-    position: sticky;
-    top: 88px; /* abaixo do header sticky */
-  }
-  .hero__body {
-    order: 1;
-    flex: 1 1 0;
-    padding-top: 8px;
-  }
-
-  /* Foto maior e com proporção retrato */
-  .photo {
-    width: 100%;
-    max-width: 100%;
-  }
-  .photo__img { border-radius: 0 }
-
-  /* Tipografia maior no desktop */
-  .h1 { font-size: 2.7rem }
-  .lead { font-size: 1.05rem }
-
-  /* Pilares em 2 colunas */
-  .pillars { grid-template-columns: 1fr 1fr }
-
-  /* CTAs em linha */
-  .ctaRow { flex-direction: row }
-  .btn { padding: 13px 22px }
-
-  /* Contato em linha */
-  .contactBtns { flex-direction: row }
-
-  /* Card com mais padding */
-  .card { padding: 24px 28px }
-}
-
-/* ============================================================
-   WIDE — a partir de 1100px
-   ============================================================ */
-@media (min-width: 1100px) {
-  .hero__media { flex: 0 0 380px }
-  .h1 { font-size: 3rem }
-}
+</body>
+</html>
