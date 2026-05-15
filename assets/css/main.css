@@ -403,6 +403,7 @@ img { display: block; max-width: 100% }
     max-width: 40px;
     position: sticky;
     top: 88px;
+    overflow:hidden;
   }
   .hero__body {
     order: 1;
