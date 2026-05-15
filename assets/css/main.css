@@ -416,7 +416,7 @@ img { display: block; max-width: 100% }
     padding-top: 8px;
   }
 
-  .photo { width: 100% !important; max-width: 100% !important; }
+  .photo { width: 40px; max-width: 40px; }
   .photo__img { border-radius: 0 }
 
   .h1 { font-size: 2.7rem }
