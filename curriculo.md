@@ -11,7 +11,7 @@ nav_title: "Currículo"
   <h2>Formação e qualificações</h2>
   <div class="card">
     <ul class="list">
-      <li><strong>Atuação</strong>: Perícia judicial e assistência técnica em contratos bancários (CDC, SFH, cartão de crédito, cheque especial, expurgos inflacionários) e em liquidação de sentença.</li>
+      <li><strong>Atuação</strong>: Perícia judicial e assistência técnica em contratos bancários (CDC, SFH, cartão de crédito, cheque especial, expurgos inflacionários), prestação de contas e liquidação de sentença.</li>
       <li><strong>Resumo profissional</strong>: 12 anos de experiência em Planejamento Financeiro, com atuação em orçamento empresarial, análise de demonstrações contábeis e apuração de indicadores financeiros, em empresas multinacionais e de grande porte dos setores de varejo, seguros, óleo e gás e editorial.</li>
       <li><strong>Graduações</strong>: Administração (Finanças e Controle) — UFRJ; Ciências Contábeis — Estácio.</li>
       <li><strong>MBAs</strong>: MBA em Finanças — UFF (Latec); MBA em Perícia Judicial e Extrajudicial — Faculdade de São Marcos.</li>
