@@ -25,7 +25,7 @@ description: "Renato Costa, Perito Contábil Judicial e Extrajudicial. Autoridad
   <h2>Áreas de atuação</h2>
   <div class="card">
     <ul class="list">
-      <li><strong>Perícia bancária:</strong> Financiamentos imobiliários, empréstimos, cartão de crédito, cheque especial e expurgos inflacionários.</li>
+      <li><strong>Perícia bancária:</strong> Financiamentos imobiliários, empréstimos, cartão de crédito, cheque especial e PASEP.</li>
       <li><strong>Prestação de contas:</strong> Tutela, curatela e inventário.</li>
       <li><strong>Partilha de bens:</strong> Levantamento e avaliação do patrimônio comum.</li>
       <li><strong>Liquidação de Sentença:</strong> Esferas cível, previdenciária e de família.</li>
